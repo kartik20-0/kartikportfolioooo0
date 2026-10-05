@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik | Digital Creator & Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: #050814; color: #ffffff; overflow-x: hidden; }
+        
+        /* Animated Backgrounds */
+        .bg-glow { position: fixed; width: 300px; height: 300px; background: rgba(0, 212, 255, 0.15); filter: blur(100px); border-radius: 50%; z-index: -1; animation: float 6s infinite alternate; top: 10%; left: 20%; }
+        .bg-glow-2 { position: fixed; width: 400px; height: 400px; background: rgba(138, 43, 226, 0.15); filter: blur(120px); border-radius: 50%; z-index: -1; animation: float 8s infinite alternate-reverse; bottom: 10%; right: 10%; }
+        @keyframes float { 0% { transform: translateY(0px); } 100% { transform: translateY(40px); } }
+
+        /* Scroll Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* General Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .section-title { font-size: 2.2rem; margin: 80px 0 40px; text-align: center; color: #fff; position: relative; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: #00d2ff; display: block; margin: 10px auto 0; border-radius: 2px; }
+
+       /* HERO SECTION */
+header { 
+    min-height: 80vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 20px; 
+}
+
+.profile-img { 
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #00d2ff; 
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); 
+    margin-bottom: 25px; 
+    transition: transform 0.4s ease; 
+}
+
+.profile-img:hover { 
+    transform: scale(1.05); 
+}
+
+h1 { 
+    font-size: 4rem; 
+    font-weight: 800; 
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%); 
+    -webkit-background-clip: text; 
+    background-clip: text; /* Standard property added */
+    -webkit-text-fill-color: transparent; 
+    margin-bottom: 10px; 
+}
+
+.typing-container { 
+    font-size: 1.5rem; 
+    color: #a0aec0; 
+    height: 40px; 
+    margin-bottom: 20px; 
+}
+
+.cursor { 
+    display: inline-block; 
+    width: 3px; 
+    background-color: #00d2ff; 
+    animation: blink 0.8s infinite; 
+}
+
+@keyframes blink { 
+    50% { opacity: 0; } 
+}
+
+.hero-bio { 
+    color: #94a3b8; 
+    max-width: 650px; 
+    font-size: 1.15rem; 
+    line-height: 1.8; 
+}
+
+.highlight { 
+    color: #00d2ff; 
+    font-weight: 600; 
+}
+        /* SERVICES SECTION */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(0, 212, 255, 0.2); padding: 35px 25px; border-radius: 16px; text-align: center; transition: all 0.4s ease; backdrop-filter: blur(10px); }
+        .service-card:hover { transform: translateY(-10px); background: rgba(0, 212, 255, 0.05); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2); }
+        .service-icon { font-size: 2.8rem; margin-bottom: 15px; display: inline-block; transition: transform 0.3s; }
+        .service-card:hover .service-icon { transform: scale(1.1); }
+        .service-card h3 { color: #e2e8f0; margin-bottom: 15px; font-size: 1.3rem; }
+        .service-card p { color: #94a3b8; font-size: 0.95rem; }
+
+        /* WORK SECTION */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .work-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 16px; transition: all 0.4s ease; display: flex; flex-direction: column; overflow: hidden; }
+        .work-card:hover { transform: translateY(-10px); border-color: rgba(138, 43, 226, 0.4); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.15); }
+        .img-container { overflow: hidden; border-radius: 10px; margin-bottom: 20px; position: relative; }
+        .project-img { width: 100%; height: 220px; object-fit: cover; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.5s ease; }
+        .work-card:hover .project-img { transform: scale(1.05); }
+        .work-tag { font-size: 0.8rem; background: rgba(138, 43, 226, 0.15); color: #c084fc; padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 15px; align-self: flex-start; text-transform: uppercase; font-weight: 600; }
+        .work-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: #e2e8f0; }
+        .work-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.7; flex-grow: 1; }
+        
+        /* Live Demo Link */
+        .live-link { display: inline-block; margin-top: 20px; color: #00d2ff; text-decoration: none; font-size: 0.95rem; font-weight: 600; align-self: flex-start; border-bottom: 1px dashed #00d2ff; padding-bottom: 2px; transition: 0.3s; cursor: pointer; }
+        .live-link:hover { color: #fff; border-bottom-color: #fff; }
+
+        /* --- POPUP MODAL (GALLERY) CSS --- */
+        .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; overflow-y: auto; background-color: rgba(5, 8, 20, 0.95); backdrop-filter: blur(8px); padding: 40px 20px; }
+        .modal-content { max-width: 1000px; margin: 0 auto; position: relative; animation: modalFadeIn 0.4s ease; }
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        .close-btn { color: #00d2ff; position: absolute; top: -30px; right: 0px; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: #fff; transform: scale(1.1); }
+        .modal-header { text-align: center; margin-bottom: 30px; }
+        .modal-header h2 { font-size: 2rem; color: #fff; }
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease; }
+        .gallery-grid img:hover { transform: scale(1.03); border-color: #00d2ff; box-shadow: 0 5px 20px rgba(0, 212, 255, 0.2); }
+
+        /* ACTION / CONTACT SECTION */
+        .cta-section { text-align: center; margin: 80px 0 40px; padding: 60px 20px; background: rgba(255, 255, 255, 0.02); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(5px); }
+        .btn { display: inline-block; background: transparent; color: #00d2ff; padding: 15px 40px; text-decoration: none; font-weight: 600; border-radius: 30px; border: 2px solid #00d2ff; transition: all 0.3s ease; margin-top: 15px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); transform: scale(1.05); }
+        
+        .social-links { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .social-btn { padding: 10px 20px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #e2e8f0; text-decoration: none; font-size: 0.95rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .social-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+
+        /* DETAILED ABOUT SECTION */
+        .bottom-about { background: linear-gradient(145deg, rgba(30,41,59,0.4) 0%, rgba(15,23,42,0.4) 100%); border: 1px solid rgba(0, 212, 255, 0.15); padding: 50px; border-radius: 20px; margin-bottom: 80px; text-align: center; }
+        .bottom-about p { color: #cbd5e1; font-size: 1.1rem; line-height: 1.9; max-width: 800px; margin: 0 auto 20px; }
+        .bottom-about .btn-outline { display: inline-block; padding: 10px 30px; margin-top: 20px; color: #c084fc; border: 1px solid #c084fc; text-decoration: none; border-radius: 30px; font-weight: 600; transition: 0.3s; }
+        .bottom-about .btn-outline:hover { background: #c084fc; color: #000; }
+
+        /* 📱 RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .profile-img { width: 120px; height: 120px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .gallery-grid img { height: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header class="reveal">
+            <img src="kartik.jpeg" alt="Kartik" class="profile-img" onerror="this.src='https://picsum.photos/seed/kartik/200/200'">
+            
+            <h1>Kartik</h1>
+            <div class="typing-container">
+                <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+            </div>
+            
+            <p class="hero-bio">
+                <span class="highlight">BCA Scholar & Digital Creator</span> bridging the gap between code and aesthetics. 
+                I combine clean programming with high-retention visual strategies to build digital solutions that actually attract customers.
+            </p>
+            <a href="#services" class="btn" style="font-size: 0.9rem; padding: 10px 25px;">See How I Can Help</a>
+        </header>
+
+        <!-- SERVICES -->
+        <h2 id="services" class="section-title reveal">How I Help You Grow</h2>
+        <div class="grid-3">
+            <div class="service-card reveal">
+                <div class="service-icon">💻</div>
+                <h3>Custom Websites & Menus</h3>
+                <p>Fast, mobile-friendly landing pages and digital menus. Perfect for cafes and salons looking to look professional and take bookings online.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎬</div>
+                <h3>Instagram Viral Reels</h3>
+                <p>I use advanced editing (beat-syncing, smart transitions) to create short-form content that keeps viewers hooked and grows your followers.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎨</div>
+                <h3>Brand Graphics & Cards</h3>
+                <p>Digital business cards, promotional offer posters, and aesthetic social media posts that make your business look like a premium luxury brand.</p>
+            </div>
+        </div>
+
+        <!-- WORK -->
+        <h2 id="work" class="section-title reveal">Proof of Work</h2>
+        <div class="grid-2">
+            
+            <!-- STUDIO / SALON PROJECT (CLICK OPEN GALLERY) -->
+            <div class="work-card reveal">
+                <div class="img-container">
+                    <img src="salon-poster.jpg" alt="Luxury Salon Branding" class="project-img" onerror="this.src='https://picsum.photos/seed/salon/600/400'">
+                </div>
+                <span class="work-tag">Brand Identity</span>
+                <h3>Luxury Salon & Studio</h3>
+                <p>Designed a complete digital branding package for a premium beauty studio. Delivered high-converting digital business cards, promotional video ads, and a structured service menu.</p>
+                <!-- Yahan onclick attribute lagaya hai jo popup khol dega -->
+                <a onclick="openGallery()" class="live-link">👁️ View All Designs</a>
+            </div>
+
+            <!-- Baki Projects... -->
+            <div class="work-card reveal">
+                <div class="img-container">
+                    <img src="webapp.jpg" alt="Interactive Web App" class="project-img" onerror="this.src='https://picsum.photos/seed/web/600/400'">
+                </div>
+                <span class="work-tag">Web Development</span>
+                <h3>Interactive Web-App</h3>
+                <p>Developed a custom, mobile-responsive web application featuring interactive UI elements, dynamic background animations, and a personalized quiz engine using HTML, CSS, and pure JavaScript.</p>
+                <a href="https://lustrous-klepon-b86843.netlify.app" target="_blank" class="live-link">👁️ Visit Live Website</a>
+            </div>
+
+            <div class="work-card reveal">
+                <div class="img-container">
+                    <img src="reels.jpg" alt="Instagram Reels" class="project-img" onerror="this.src='https://picsum.photos/seed/aesthetic/600/400'">
+                </div>
+                <span class="work-tag">Content Creation</span>
+                <h3>Lifestyle Brand Growth</h3>
+                <p>Managing visual strategy and video editing for a fast-growing aesthetic page. Specialized in high-retention short-form video editing on VN Editor to maximize organic reach.</p>
+                <a href="https://instagram.com/kartik_202006" target="_blank" class="live-link">👁️ View Live on Instagram</a>
+            </div>
+
+            <div class="work-card reveal">
+                <div class="img-container">
+                    <img src="agritech.jpg" alt="AgriTech UI" class="project-img" onerror="this.src='https://picsum.photos/seed/agri/600/400'">
+                </div>
+                <span class="work-tag">UI/UX Design</span>
+                <h3>AgriTech Dashboard Prototype</h3>
+                <p>Spearheaded the frontend architecture and user interface for an agricultural technology platform during the competitive TechForge Hackathon, focusing on simplifying complex data displays.</p>
+                <a href="https://deluxe-kringle-e9a23d.netlify.app" target="_blank" class="live-link">👁️ View Dashboard UI</a>
+            </div>
+
+            <div class="work-card reveal">
+                <div class="img-container">
+                    <img src="fashion-factory.jpg" alt="GenZ Shopping UI" class="project-img" onerror="this.src='https://picsum.photos/seed/ecommerce/600/400'">
+                </div>
+                <span class="work-tag">App Development</span>
+                <h3>GenZ Shopping - E-commerce</h3>
+                <p>Designed and developed a modern, high-performance mobile e-commerce application UI. Built intuitive product catalogs, a seamless cart interface, and smooth user navigation flows using React Native and Firebase.</p>
+                <a href="https://genzshoping.netlify.app"  target="_blank" class="live-link">👁️ View App Screens</a>
+                
+            </div>
+
+        </div>
+
+        <!-- CTA / CONTACT SECTION -->
+        <div class="cta-section reveal">
+            <h2 style="font-size: 2rem; color: #fff; margin-bottom: 15px;">Ready to dominate your local market?</h2>
+            <p style="color: #94a3b8; margin-bottom: 20px;">Let's discuss how customized web presence and smart branding can bring more footfall to your business.</p>
+            
+            <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Kartik,%20I%20loved%20your%20work.%20I%20want%20to%20discuss%20a%20project!" class="btn" target="_blank">💬 Message on WhatsApp</a>
+            
+            <div class="social-links">
+                <a href="mailto:kartiklodhi153@gmail.com" class="social-btn">✉️ kartiklodhi153@gmail.com</a>
+                <a href="https://instagram.com/kartik_202006" class="social-btn" target="_blank">📸 @kartik_202006</a>
+            </div>
+        </div>
+
+        <!-- DETAILED ABOUT ME -->
+        <div class="bottom-about reveal">
+            <h2 style="color: #fff; margin-bottom: 20px; font-size: 1.8rem;">The Story Behind The Code</h2>
+            <p>
+                I am a <span class="highlight">BCA Scholar</span> and software engineering aspirant based in Dehradun. 
+                My journey in tech started with a curiosity for how things work, which led me to dive deep into HTML, CSS, JavaScript, and Python 
+                (including building my own AI assistant, J.A.R.V.I.S).
+            </p>
+            <p>
+                Beyond hardcore coding, I have a strong creative side. From UI/UX design to high-retention video editing in VN Editor, 
+                I understand what catches the eye. My mission is simple: <span class="highlight">I help businesses build a digital presence 
+                that doesn't just look good, but actually brings in customers.</span>
+            </p>
+            <a href="#work" class="btn-outline">View My Work</a>
+        </div>
+        
+    </div>
+
+    <!-- 🌟 YAHAN HAI NAYA POPUP MODAL (GALLERY) 🌟 -->
+    <div id="imageGalleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeGallery()">&times;</span>
+            <div class="modal-header">
+                <h2>Salon Branding Assets</h2>
+                <p style="color: #94a3b8;">Digital Cards, Posters, and Service Menus</p>
+            </div>
+            
+            <!-- IS GRID KE ANDAR APNI SARI EXTRA IMAGES DALO -->
+            <div class="gallery-grid">
+                <!-- Image 1 -->
+                <img src="salon-img1.jpeg" alt="Design 1">
+                <!-- Image 2 -->
+                <img src="salon-img2.PNG"  alt="Design 2">
+                <!-- Image 3 -->
+                <img src="salon-img3.png" alt="Design 3">
+                <!-- Image 4 -->
+                <img src="salon-img4.jpeg" alt="Design 4">
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Typing Effect Script
+        const words = ["Web Developer.", "Video Editor.", "Brand Strategist.", "UI/UX Designer."];
+        let i = 0, j = 0;
+        let isDeleting = false;
+        const textElement = document.getElementById("typing-text");
+
+        function type() {
+            const currentWord = words[i];
+            if (isDeleting) {
+                textElement.innerText = currentWord.substring(0, j - 1);
+                j--;
+            } else {
+                textElement.innerText = currentWord.substring(0, j + 1);
+                j++;
+            }
+            if (!isDeleting && j === currentWord.length) {
+                isDeleting = true;
+                setTimeout(type, 1200); 
+            } else if (isDeleting && j === 0) {
+                isDeleting = false;
+                i = (i + 1) % words.length;
+                setTimeout(type, 300); 
+            } else {
+                setTimeout(type, isDeleting ? 25 : 50);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", type);
+
+        // Scroll Reveal Animation Script
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 80; 
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); 
+
+        // 🌟 NAYI SCRIPT: POPUP GALLERY KE LIYE 🌟
+        const modal = document.getElementById("imageGalleryModal");
+        
+        function openGallery() {
+            modal.style.display = "block";
+            // Jab modal khule toh peeche ka page scroll hona band ho jaye
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeGallery() {
+            modal.style.display = "none";
+            // Modal band ho toh page wapas normally scroll ho sake
+            document.body.style.overflow = "auto";
+        }
+        
+        // Agar user dark area mein click kare toh bhi popup band ho jaye
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeGallery();
+            }
+        }
+    </script>
+</body>
+</html>
